@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:8080
+@token = paste-token-here
+
+### Health
+GET {{baseUrl}}/health
+
+### Register
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Иван",
+  "email": "student@example.ru",
+  "password": "password123"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "student@example.ru",
+  "password": "password123"
+}
+
+### Categories
+GET {{baseUrl}}/api/categories
+Authorization: Bearer {{token}}
+
+### Search
+GET {{baseUrl}}/api/terms?query=Kotlin
+Authorization: Bearer {{token}}
+
+### Term details
+GET {{baseUrl}}/api/terms/1
+Authorization: Bearer {{token}}
+

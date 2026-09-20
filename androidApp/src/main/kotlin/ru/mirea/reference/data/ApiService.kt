@@ -7,7 +7,6 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
-import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.bearerAuth
 import io.ktor.client.request.get
@@ -38,7 +37,6 @@ class ApiService(baseUrl: String, private val preferences: PreferencesStore) {
             connectTimeoutMillis = 10_000
         }
         install(Logging) {
-            logger = Logger.DEFAULT
             level = LogLevel.INFO
             sanitizeHeader { it.equals("Authorization", ignoreCase = true) }
         }

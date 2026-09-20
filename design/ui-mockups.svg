@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600">
+  <style>
+    .bg{fill:#eef1f7}.phone{fill:#fff;stroke:#202531;stroke-width:8}.bar{fill:#3857c8}.title{font:700 28px Arial;fill:#18202b}.text{font:20px Arial;fill:#313846}.small{font:16px Arial;fill:#626b7a}.white{fill:#fff}.field{fill:#fff;stroke:#79839a;stroke-width:2}.button{fill:#3857c8}.card{fill:#f6f7fb;stroke:#d9dce5;stroke-width:2}.darkphone{fill:#171820;stroke:#090a0d;stroke-width:8}.darkcard{fill:#252733;stroke:#3b3e4b;stroke-width:2}.darktext{fill:#f2f2f7}
+  </style>
+  <rect class="bg" width="1200" height="1600"/>
+  <g transform="translate(55 70)">
+    <rect class="phone" rx="36" width="330" height="680"/><text class="title" x="38" y="150">ИТ Справочник</text><text class="small" x="38" y="185">Войдите, чтобы искать термины</text>
+    <rect class="field" x="38" y="225" rx="12" width="254" height="62"/><text class="small" x="54" y="263">Электронная почта</text><rect class="field" x="38" y="305" rx="12" width="254" height="62"/><text class="small" x="54" y="343">Пароль</text>
+    <rect class="button" x="38" y="395" rx="16" width="254" height="62"/><text class="text white" x="134" y="434">Войти</text><text class="small" x="95" y="490">Создать аккаунт</text><text class="small" x="112" y="650">Авторизация</text>
+  </g>
+  <g transform="translate(435 70)">
+    <rect class="phone" rx="36" width="330" height="680"/><text class="title" x="38" y="105">Регистрация</text><text class="small" x="38" y="138">Данные нового аккаунта</text>
+    <rect class="field" x="38" y="175" rx="12" width="254" height="58"/><text class="small" x="54" y="210">Имя</text><rect class="field" x="38" y="247" rx="12" width="254" height="58"/><text class="small" x="54" y="282">Электронная почта</text><rect class="field" x="38" y="319" rx="12" width="254" height="58"/><text class="small" x="54" y="354">Пароль</text><rect class="field" x="38" y="391" rx="12" width="254" height="58"/><text class="small" x="54" y="426">Повторите пароль</text>
+    <rect class="button" x="38" y="485" rx="16" width="254" height="62"/><text class="text white" x="74" y="524">Зарегистрироваться</text><text class="small" x="112" y="650">Регистрация</text>
+  </g>
+  <g transform="translate(815 70)">
+    <rect class="phone" rx="36" width="330" height="680"/><rect class="bar" x="4" y="4" rx="32" width="322" height="78"/><text class="text white" x="24" y="52">ИТ Справочник</text>
+    <rect class="field" x="20" y="105" rx="14" width="290" height="62"/><text class="small" x="44" y="143">Поиск термина...</text><rect class="card" x="20" y="195" rx="14" width="290" height="92"/><text class="text" x="48" y="232">История поиска</text><text class="small" x="48" y="264">Ktor · Kotlin · REST</text><rect class="card" x="20" y="300" rx="14" width="290" height="92"/><text class="text" x="48" y="338">Jetpack Compose</text><text class="small" x="48" y="370">Android</text><text class="small" x="98" y="650">Поиск и история</text>
+  </g>
+  <g transform="translate(55 830)">
+    <rect class="phone" rx="36" width="330" height="680"/><rect class="bar" x="4" y="4" rx="32" width="322" height="78"/><text class="text white" x="24" y="52">Результаты</text><rect class="field" x="20" y="105" rx="14" width="290" height="62"/><text class="small" x="44" y="143">Kotlin</text>
+    <rect class="card" x="20" y="190" rx="14" width="290" height="120"/><text class="text" x="38" y="226">Корутина</text><text class="small" x="38" y="252">Kotlin</text><text class="small" x="38" y="282">Асинхронное выполнение</text><rect class="card" x="20" y="325" rx="14" width="290" height="120"/><text class="text" x="38" y="361">Data class</text><text class="small" x="38" y="387">Kotlin</text><text class="small" x="38" y="417">Класс для хранения данных</text><text class="small" x="105" y="650">Результаты</text>
+  </g>
+  <g transform="translate(435 830)">
+    <rect class="phone" rx="36" width="330" height="680"/><rect class="bar" x="4" y="4" rx="32" width="322" height="78"/><text class="text white" x="24" y="52">Термин</text><text class="title" x="28" y="130">Корутина</text><text class="small" x="28" y="162">Kotlin</text><text class="text" x="28" y="212">Определение</text><text class="small" x="28" y="246">Легковесная единица</text><text class="small" x="28" y="272">асинхронного выполнения,</text><text class="small" x="28" y="298">не блокирующая поток.</text><text class="text" x="28" y="360">Пример</text><rect class="card" x="24" y="380" rx="14" width="282" height="110"/><text class="small" x="38" y="420">viewModelScope.launch {</text><text class="small" x="38" y="450">  repository.search(query)</text><text class="small" x="38" y="476">}</text><text class="small" x="118" y="650">Карточка</text>
+  </g>
+  <g transform="translate(815 830)">
+    <rect class="darkphone" rx="36" width="330" height="680"/><rect class="bar" x="4" y="4" rx="32" width="322" height="78"/><text class="text white" x="24" y="52">Настройки</text><rect class="darkcard" x="20" y="120" rx="14" width="290" height="102"/><text class="text darktext" x="38" y="160">Тёмная тема</text><text class="small darktext" x="38" y="190">Включена</text><rect class="button" x="250" y="150" rx="18" width="42" height="28"/><circle cx="278" cy="164" r="11" fill="#fff"/><rect class="darkcard" x="20" y="250" rx="14" width="290" height="64"/><text class="text darktext" x="77" y="290">Выйти из аккаунта</text><text class="small darktext" x="88" y="650">Тёмная тема</text>
+  </g>
+</svg>
+

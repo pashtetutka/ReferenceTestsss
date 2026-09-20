@@ -31,14 +31,12 @@ class HistoryRepository(private val preferences: PreferencesStore) {
 
     suspend fun add(term: TermSummaryDto) {
         preferences.updateHistory { current ->
-            (listOf(SearchHistoryItem(term.id, term.title, term.categoryName)) + current.filterNot { it.termId == term.id })
-                .take(maxItems)
+            mergeHistory(SearchHistoryItem(term.id, term.title, term.categoryName), current)
         }
     }
 
     suspend fun clear() = preferences.updateHistory { emptyList() }
-
-    private companion object {
-        const val maxItems = 10
-    }
 }
+
+internal fun mergeHistory(newItem: SearchHistoryItem, current: List<SearchHistoryItem>): List<SearchHistoryItem> =
+    (listOf(newItem) + current.filterNot { it.termId == newItem.termId }).take(10)

@@ -2,10 +2,10 @@ package ru.mirea.reference.server
 
 import java.sql.Connection
 import java.sql.SQLException
+import java.security.SecureRandom
 import java.util.Base64
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.PBEKeySpec
-import kotlin.random.Random
 import ru.mirea.reference.shared.CategoryDto
 import ru.mirea.reference.shared.TermDto
 import ru.mirea.reference.shared.TermSummaryDto
@@ -14,7 +14,7 @@ import ru.mirea.reference.shared.UserDto
 class AuthRepository(private val database: DatabaseFactory) {
     suspend fun register(name: String, email: String, password: String): UserDto {
         val normalizedEmail = email.trim().lowercase()
-        val salt = Random.Default.nextBytes(16)
+        val salt = ByteArray(16).also(SecureRandom()::nextBytes)
         val hash = PasswordHasher.hash(password, salt)
         return try {
             database.query { connection ->
@@ -136,7 +136,7 @@ class TermsRepository(private val database: DatabaseFactory) {
 }
 
 private object PasswordHasher {
-    private const val iterations = 120_000
+    private const val iterations = 600_000
     private const val keyLength = 256
 
     fun hash(password: String, salt: ByteArray): ByteArray {
@@ -159,4 +159,3 @@ private object PasswordHasher {
 }
 
 class DuplicateEmailException : IllegalArgumentException("Пользователь с таким адресом уже существует")
-

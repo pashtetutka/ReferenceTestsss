@@ -9,8 +9,8 @@ import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
 import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
 import io.ktor.server.auth.authenticate
-import io.ktor.server.auth.authentication
 import io.ktor.server.auth.jwt.JWTPrincipal
 import io.ktor.server.auth.jwt.jwt
 import io.ktor.server.engine.embeddedServer
@@ -39,6 +39,7 @@ fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module).start(wait = true)
 }
 
+@JvmOverloads
 fun Application.module(
     databasePath: String = System.getenv("DB_PATH") ?: "data/reference.db",
     jwtSecret: String = System.getenv("JWT_SECRET") ?: "change-this-secret-before-production",
@@ -48,6 +49,7 @@ fun Application.module(
     val authRepository = AuthRepository(database)
     val termsRepository = TermsRepository(database)
     val tokenService = TokenService(jwtSecret)
+    val applicationLog = environment.log
 
     install(CallLogging)
     install(ContentNegotiation) {
@@ -68,11 +70,11 @@ fun Application.module(
             call.respond(HttpStatusCode.BadRequest, ApiError("validation_error", error.message ?: "Некорректный запрос"))
         }
         exception<Throwable> { call, error ->
-            environment.log.error("Необработанная ошибка", error)
+            applicationLog.error("Необработанная ошибка", error)
             call.respond(HttpStatusCode.InternalServerError, ApiError("internal_error", "Внутренняя ошибка сервера"))
         }
     }
-    authentication {
+    install(Authentication) {
         jwt("auth-jwt") {
             realm = "it-reference"
             verifier(tokenService.verifier)
@@ -143,4 +145,3 @@ private class TokenService(secret: String) {
         const val audience = "it-reference-android"
     }
 }
-

@@ -12,7 +12,7 @@ application {
     mainClass.set("ru.mirea.reference.server.ApplicationKt")
 }
 
-val ktorVersion = "3.1.2"
+val ktorVersion = "3.6.0"
 
 dependencies {
     implementation(project(":shared"))
@@ -36,4 +36,3 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
-
